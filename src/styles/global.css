@@ -10,11 +10,18 @@
   --color-dark: #030303;
 }
 
+@media (min-width: 768px) {
+  :root {
+    font-size: 18px;
+  }
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
 h1,
 h2,
 h3,
@@ -25,6 +32,7 @@ h6 {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
+
 body {
   background: var(--color-dark) url(/bground.svg) repeat center;
   height: 100%;
@@ -34,10 +42,37 @@ body {
   color: var(--color-light);
   font-family: Arial, Helvetica, sans-serif;
 }
+body.light-theme {
+  background: var(--color-light) url(/bground.svg) repeat center;
+  color: var(--color-dark);
+}
+
 a {
   color: var(--color-light);
   text-decoration: none;
 }
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+p.paragraph {
+  line-height: 1.3;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background: var(--color-light) url(/bground.svg) repeat center;
+    color: var(--color-dark);
+  }
+  a {
+    color: var(--color-dark);
+  }
+}
+
 img {
   display: block;
   max-width: 100%;

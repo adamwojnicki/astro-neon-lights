@@ -1,12 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import FeaturedPosts from "../components/FeaturedPosts.astro";
 
 const pageTitle = "About";
 ---
 
 <Layout title={pageTitle}>
   <h1>{pageTitle}</h1>
-  <p>
+  <p class="paragraph">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro nostrum
     tempore ducimus velit, est aliquid vel expedita recusandae eos officia
     dolores accusamus cupiditate unde quas mollitia, aperiam dolorem molestias
@@ -40,4 +41,5 @@ const pageTitle = "About";
     Perspiciatis dignissimos repudiandae fugiat unde quo, impedit ratione?
     Dolore.
   </p>
+  <FeaturedPosts />
 </Layout>

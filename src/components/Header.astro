@@ -4,7 +4,9 @@ const path = Astro.url.pathname;
 ---
 
 <header class="header">
-  <div class="logo">{logo}</div>
+  <a href="/">
+    <div class="logo">{logo}</div>
+  </a>
   <nav>
     <ul class="nav-list">
       <li>
@@ -25,7 +27,7 @@ const path = Astro.url.pathname;
     font-size: 3rem;
     text-align: center;
   }
-  .header ul {
+  .header .nav-list {
     display: flex;
     list-style-type: none;
     padding-left: 0;
@@ -34,15 +36,15 @@ const path = Astro.url.pathname;
     font-size: 1.4rem;
     text-transform: uppercase;
   }
-  .header ul a {
+  .header .nav-list a {
     color: var(--color-secondary);
     opacity: 0.8;
   }
-  .header ul a:hover {
+  .header .nav-list li a:hover {
     opacity: 1;
     text-shadow: 1px 1px 4px var(--color-secondary);
   }
-  .header ul a.active {
+  .header .nav-list li a.active {
     text-decoration: underline;
     text-shadow: 1px 1px 4px var(--color-secondary);
     opacity: 1;
