@@ -6,7 +6,7 @@ const path = Astro.url.pathname;
 <header class="header">
   <div class="logo">{logo}</div>
   <nav>
-    <ul>
+    <ul class="nav-list">
       <li>
         <a href="/" class={`${path === "/" && "active"}`}>HOME</a>
       </li>
@@ -35,14 +35,19 @@ const path = Astro.url.pathname;
     text-transform: uppercase;
   }
   .header ul a {
-    color: rgb(234, 4, 126);
-    text-decoration: none;
+    color: var(--color-secondary);
+    opacity: 0.8;
+  }
+  .header ul a:hover {
+    opacity: 1;
+    text-shadow: 1px 1px 4px var(--color-secondary);
   }
   .header ul a.active {
     text-decoration: underline;
-    text-shadow: 1px 1px 4px rgb(234, 4, 126);
+    text-shadow: 1px 1px 4px var(--color-secondary);
+    opacity: 1;
   }
-  .header li:not(.header li:first-of-type) {
+  .header .nav-list > li + li {
     margin-left: 1rem;
   }
 </style>

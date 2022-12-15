@@ -1,11 +1,39 @@
 ---
+import PostCard from "./PostCard.astro";
+const posts = await Astro.glob("../pages/posts/*.md");
+const featuredPosts = posts.filter(
+  (p) => !p.frontmatter.draft && p.frontmatter.featured
+);
+const slicedPosts = featuredPosts.slice(0, 3);
 ---
 
 <div>
   <h2>Featured Posts</h2>
+  <div class="post-list">
+    {slicedPosts.map((p) => <PostCard post={p} />)}
+  </div>
 </div>
 <style>
   h2 {
     text-align: center;
+  }
+  .post-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 8px;
+  }
+  @media (min-width: 420px) {
+    .post-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 8px;
+    }
+  }
+  @media (min-width: 768px) {
+    .post-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 8px;
+    }
   }
 </style>

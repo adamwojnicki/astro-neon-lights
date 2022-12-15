@@ -2,6 +2,14 @@
   font-family: VHS;
   src: url(/VHS.ttf);
 }
+
+:root {
+  --color-primary: rgb(0, 245, 255);
+  --color-secondary: rgb(234, 4, 126);
+  --color-light: #fafafa;
+  --color-dark: #030303;
+}
+
 *,
 *::before,
 *::after {
@@ -18,11 +26,19 @@ h6 {
   text-transform: uppercase;
 }
 body {
-  background: #030303 url(/bground.svg) repeat center;
+  background: var(--color-dark) url(/bground.svg) repeat center;
   height: 100%;
   margin: 0;
   padding: 1rem;
   min-height: 100vh;
-  color: #fafafa;
+  color: var(--color-light);
   font-family: Arial, Helvetica, sans-serif;
+}
+a {
+  color: var(--color-light);
+  text-decoration: none;
+}
+img {
+  display: block;
+  max-width: 100%;
 }

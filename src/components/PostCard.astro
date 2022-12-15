@@ -1,0 +1,46 @@
+---
+const { post } = Astro.props;
+const { title, description, featImage, featured } = post.frontmatter;
+---
+
+<a href={post.url}>
+  <div class="post-card">
+    {featured && <div class="featured">featured</div>}
+    <img src={featImage.src} alt={featImage.alt} width="750" height="300" />
+    <div class="text-content">
+      <h3>{title}</h3>
+      <p>
+        {description}
+      </p>
+    </div>
+  </div>
+</a>
+<style>
+  .post-card {
+    transition: all 0.4s ease-in;
+    position: relative;
+  }
+  .post-card img {
+    max-height: 160px;
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: top;
+  }
+  .post-card .text-content {
+    padding: 4px;
+  }
+  .post-card:hover {
+    background: var(--color-secondary);
+  }
+  .post-card .featured {
+    background: var(--color-secondary);
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    padding: 4px 16px;
+    border-radius: 100px;
+    font-family: VHS;
+    text-transform: uppercase;
+  }
+</style>

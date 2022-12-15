@@ -6,7 +6,7 @@ featImage:
   src: "/images/Screenshot_2.png"
   alt: "A featured image"
 draft: false
-featured: true
+featured: false
 ---
 
 Hello from post 1
