@@ -1,0 +1,28 @@
+@font-face {
+  font-family: VHS;
+  src: url(/VHS.ttf);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: VHS;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+body {
+  background: #030303 url(/bground.svg) repeat center;
+  height: 100%;
+  margin: 0;
+  padding: 1rem;
+  min-height: 100vh;
+  color: #fafafa;
+  font-family: Arial, Helvetica, sans-serif;
+}

@@ -1,0 +1,46 @@
+---
+const logo = "LOGO";
+const path = Astro.url.pathname;
+---
+
+<header class="header">
+  <div class="logo">{logo}</div>
+  <nav>
+    <ul>
+      <li>
+        <a href="/" class={`${path === "/" && "active"}`}>HOME</a>
+      </li>
+      <li>
+        <a href="/about" class={`${path === "/about" && "active"}`}>ABOUT</a>
+      </li>
+      <li>
+        <a href="/blog" class={`${path === "/blog" && "active"}`}>BLOG</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+<style>
+  .header .logo {
+    font-family: VHS;
+    font-size: 3rem;
+  }
+  .header ul {
+    display: flex;
+    list-style-type: none;
+    padding-left: 0;
+    justify-content: center;
+    font-family: VHS;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+  .header ul a {
+    color: rgb(234, 4, 126);
+    text-decoration: none;
+  }
+  .header ul a.active {
+    text-decoration: underline;
+  }
+  .header li:not(.header li:first-of-type) {
+    margin-left: 1rem;
+  }
+</style>
