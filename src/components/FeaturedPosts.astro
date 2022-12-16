@@ -8,10 +8,18 @@ const slicedPosts = featuredPosts.slice(0, 3);
 ---
 
 <div>
-  <h2>Featured Posts</h2>
-  <div class="post-list">
-    {slicedPosts.map((p) => <PostCard post={p} />)}
-  </div>
+  {
+    slicedPosts.length > 0 && (
+      <>
+        <h2>Featured Posts</h2>
+        <div class="post-list">
+          {slicedPosts.map((p) => (
+            <PostCard post={p} />
+          ))}
+        </div>
+      </>
+    )
+  }
 </div>
 <style>
   h2 {

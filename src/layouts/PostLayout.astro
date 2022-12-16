@@ -1,8 +1,40 @@
 ---
+import { Image } from "@astrojs/image/components";
 import Layout from "./Layout.astro";
+const { frontmatter } = Astro.props;
+const { title, featImage, description } = frontmatter;
+
+const pageTitle = `${title} | Blog`;
 ---
 
-<Layout title="BLog">
+<Layout title={pageTitle}>
+  <a href="/blog">&lt;- Go back</a>
+  <p>{description}</p>
+  <figure>
+    <Image
+      src={`${featImage.src}`}
+      alt={featImage.alt}
+      width={1024}
+      height={576}
+      format="webp"
+      fit="fill"
+    />
+  </figure>
+  <h1>{title}</h1>
   <slot />
-  asdf test
 </Layout>
+<style>
+  figure {
+    width: 100%;
+    margin: auto;
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+  a {
+    color: var(--color-secondary);
+    font-family: VHS;
+    text-transform: uppercase;
+  }
+</style>

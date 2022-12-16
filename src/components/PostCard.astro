@@ -2,14 +2,20 @@
 import { Image } from "@astrojs/image/components";
 const { post } = Astro.props;
 const { title, featImage, featured } = post.frontmatter;
-const src = import(`../assets/${featImage.src}.png`);
 ---
 
 <a href={post.url}>
   <div class="post-card">
     {featured && <div class="featured">featured</div>}
     <figure>
-      <Image src={src} alt={featImage.alt} width={420} height={236} />
+      <Image
+        src={`${featImage.src}`}
+        alt={featImage.alt}
+        width={420}
+        height={236}
+        format="webp"
+        fit="fill"
+      />
     </figure>
     <div class="text-content">
       <h3>{title}</h3>
@@ -37,7 +43,6 @@ const src = import(`../assets/${featImage.src}.png`);
   }
   .post-card figure img {
     object-fit: cover;
-    object-position: center;
     margin: auto;
     transition: transform 0.4s ease-in;
   }
