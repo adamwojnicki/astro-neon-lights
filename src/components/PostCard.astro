@@ -1,13 +1,15 @@
 ---
+import { Image } from "@astrojs/image/components";
 const { post } = Astro.props;
 const { title, featImage, featured } = post.frontmatter;
+const src = import(`../assets/${featImage.src}.png`);
 ---
 
 <a href={post.url}>
   <div class="post-card">
     {featured && <div class="featured">featured</div>}
     <figure>
-      <img src={featImage.src} alt={featImage.alt} width="300" height="200" />
+      <Image src={src} alt={featImage.alt} width={420} height={236} />
     </figure>
     <div class="text-content">
       <h3>{title}</h3>
@@ -19,24 +21,25 @@ const { title, featImage, featured } = post.frontmatter;
     transition: all 0.4s ease-in;
     position: relative;
   }
-  .post-card figure {
-    overflow: hidden;
-    width: 100%;
-    margin: auto;
-  }
-  .post-card img {
-    max-height: 160px;
-    width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    object-position: top;
-    transition: transform 0.6s ease-out;
-  }
+
   .post-card:hover {
     background: var(--color-secondary);
   }
+
   .post-card:hover img {
     transform: scale(1.2);
+  }
+
+  .post-card figure {
+    max-height: 180px;
+    overflow: hidden;
+    margin: auto;
+  }
+  .post-card figure img {
+    object-fit: cover;
+    object-position: center;
+    margin: auto;
+    transition: transform 0.4s ease-in;
   }
   .post-card .featured {
     background: var(--color-secondary);

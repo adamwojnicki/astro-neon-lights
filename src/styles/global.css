@@ -1,6 +1,6 @@
 @font-face {
   font-family: VHS;
-  src: url(/VHS.ttf);
+  src: url(/fonts/VHS.ttf);
 }
 
 :root {
@@ -65,7 +65,7 @@ p.paragraph {
 
 @media (prefers-color-scheme: light) {
   body {
-    background: var(--color-light) url(/bground.svg) repeat center;
+    background: var(--color-light) url(/images/bground.svg) repeat center;
     color: var(--color-dark);
   }
   a {

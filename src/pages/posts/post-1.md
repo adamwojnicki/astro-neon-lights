@@ -3,7 +3,7 @@ layout: "../../layouts/Layout.astro"
 title: Hello World! Helllooooo asdffdfgggg
 description: Hello world post description asdafsfa asadggadgad asfadggasdg
 featImage:
-  src: "/images/Screenshot_2.png"
+  src: "Screenshot_2"
   alt: "A featured image"
 draft: false
 featured: true
