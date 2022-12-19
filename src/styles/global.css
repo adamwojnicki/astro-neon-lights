@@ -48,8 +48,8 @@ body.light-theme {
 }
 
 a {
-  color: var(--color-light);
-  text-decoration: none;
+  color: var(--color-secondary);
+  text-decoration: underline;
 }
 
 button {

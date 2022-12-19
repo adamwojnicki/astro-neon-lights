@@ -10,14 +10,15 @@ const slicedPosts = featuredPosts.slice(0, 3);
 <div>
   {
     slicedPosts.length > 0 && (
-      <>
+      <div class="featured-posts">
         <h2>Featured Posts</h2>
         <div class="post-list">
           {slicedPosts.map((p) => (
             <PostCard post={p} />
           ))}
         </div>
-      </>
+        <a href="/blog">See all posts</a>
+      </div>
     )
   }
 </div>
@@ -25,10 +26,19 @@ const slicedPosts = featuredPosts.slice(0, 3);
   h2 {
     text-align: center;
   }
+  a {
+    text-align: center;
+    display: table;
+    margin: auto;
+    text-decoration: underline;
+    font-family: VHS;
+    text-transform: uppercase;
+  }
   .post-list {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 8px;
+    margin-bottom: 32px;
   }
   @media (min-width: 420px) {
     .post-list {
