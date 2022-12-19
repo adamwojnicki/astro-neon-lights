@@ -1,0 +1,26 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import images from "./gallery.json";
+export async function getStaticPaths() {
+  return images.map(({ id, src, name }) => {
+    return {
+      params: { name },
+      props: { name, src },
+    };
+  });
+}
+const { name, src } = Astro.props;
+---
+
+<Layout title={name}>
+  <a href="/gallery">&lt;- Go back</a>
+  <p>{name}</p>
+  <img src={src} />
+</Layout>
+<style>
+  a {
+    color: var(--color-secondary);
+    font-family: VHS;
+    text-transform: uppercase;
+  }
+</style>

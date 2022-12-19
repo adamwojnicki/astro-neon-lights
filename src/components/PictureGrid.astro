@@ -1,21 +1,43 @@
 ---
 import { Image } from "@astrojs/image/components";
+
+const { images } = Astro.props;
 ---
 
 <div class="gallery">
-  <Image
-    width={420}
-    height={236}
-    format="webp"
-    alt="asdf"
-    fit="fill"
-    src="/images/neons.jpg"
-  />
+  {
+    images.map((i: { id: number; src: string; name: string }) => (
+      <a href={`/gallery/${i.name}`}>
+        <Image
+          width={420}
+          height={236}
+          format="webp"
+          alt="asdf"
+          fit="fill"
+          src={i.src}
+        />
+      </a>
+    ))
+  }
 </div>
 <style>
   .gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-gap: 8px;
+  }
+  @media (min-width: 420px) {
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 8px;
+    }
+  }
+  @media (min-width: 768px) {
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 8px;
+    }
   }
 </style>
