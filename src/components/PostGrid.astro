@@ -1,12 +1,17 @@
 ---
 import PostCard from "./PostCard.astro";
-
-const posts = await Astro.glob("../pages/posts/*.md");
-const publishedPosts = posts.filter((p) => !p.frontmatter.draft);
+const { posts } = Astro.props;
 ---
 
 <section class="post-list">
-  {publishedPosts.map((p) => <PostCard post={p} />)}
+  {
+    posts.map(
+      (p: {
+        url: string;
+        frontmatter: { featImage: { src: string; alt: string }; title: string };
+      }) => <PostCard post={p} />
+    )
+  }
 </section>
 <style>
   .post-list {

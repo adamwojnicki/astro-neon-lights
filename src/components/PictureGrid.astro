@@ -2,12 +2,14 @@
 import { Image } from "@astrojs/image/components";
 
 const { images } = Astro.props;
+
+const { pathname } = Astro.url;
 ---
 
 <div class="gallery">
   {
-    images.map((i: { id: number; src: string; name: string }) => (
-      <a href={`/gallery/${i.name}`}>
+    images.map((i: { src: string; name: string }) => (
+      <a href={`${pathname}/${i.name}`}>
         <Image
           width={420}
           height={236}

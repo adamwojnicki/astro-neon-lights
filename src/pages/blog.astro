@@ -1,12 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
 import PostGrid from "../components/PostGrid.astro";
+
+const posts = await Astro.glob("../pages/posts/*.md");
+const publishedPosts = posts.filter((p) => !p.frontmatter.draft);
 
 const pageTitle = "Blog";
 ---
 
 <Layout title={pageTitle}>
   <h1>{pageTitle}</h1>
-  <PostGrid />
+  <PostGrid posts={publishedPosts} />
 </Layout>
