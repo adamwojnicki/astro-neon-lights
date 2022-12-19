@@ -1,0 +1,21 @@
+---
+import { Image } from "@astrojs/image/components";
+---
+
+<div class="gallery">
+  <Image
+    width={420}
+    height={236}
+    format="webp"
+    alt="asdf"
+    fit="fill"
+    src="/images/neons.jpg"
+  />
+</div>
+<style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 8px;
+  }
+</style>

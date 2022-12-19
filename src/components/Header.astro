@@ -18,6 +18,11 @@ const path = Astro.url.pathname;
       <li>
         <a href="/blog" class={`${path === "/blog" && "active"}`}>BLOG</a>
       </li>
+      <li>
+        <a href="/gallery" class={`${path === "/gallery" && "active"}`}
+          >GALLERY</a
+        >
+      </li>
     </ul>
   </nav>
 </header>
